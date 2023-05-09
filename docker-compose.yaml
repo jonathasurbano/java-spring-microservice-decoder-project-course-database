@@ -1,0 +1,17 @@
+volumes:
+  decoder-project-postgres-database:
+services:
+
+  db:
+    image: postgres:12.14
+    restart: always    
+    environment:
+      POSTGRES_PASSWORD: pass123
+    volumes:
+      - decoder-project-postgres-database:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
